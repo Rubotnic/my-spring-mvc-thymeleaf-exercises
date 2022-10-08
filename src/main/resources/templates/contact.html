@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="favicons.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Complaible" content="IE=edge">
+    <title>Text box</title>
+
+
+    <!-- Resources -->
+    <!-- Fontawesome icon library Resource -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <!-- Bootstrap Webjar Resource -->
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} " />
+    <script defer th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script defer th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<nav th:insert="fragments/nav.html :: nav_fragment"></nav>
+
+<Header>
+    <h1>Text box</h1>
+</Header>
+
+<main>
+
+<div class="container" id="form1", th:class="form1">
+<form action="/home/save" th:object="${contact1}" method="POST">
+    <input type="text" placeholder="Enter some text here" th:field="${contact1.text1}"> <br>
+    <input type="submit" value="Press here to add text" />
+</form>
+</div>
+
+
+
+</main>
+
+</body>
+</html>
