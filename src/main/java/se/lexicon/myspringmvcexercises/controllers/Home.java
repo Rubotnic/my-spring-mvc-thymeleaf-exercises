@@ -41,13 +41,13 @@ public class Home {
     }
 
     @GetMapping(path = {"/contactlist"})
-    public String contactList(Model model){
+    public String contactList(){
 
-        stringContact.add(new Contact(1,"text1"));
-        stringContact.add(new Contact(2, "Text2"));
-        stringContact.add(new Contact(3, "text3"));
-
-        model.addAttribute("stringContact", stringContact);
+//        stringContact.add(new Contact(1,"text1"));
+//        stringContact.add(new Contact(2, "Text2"));
+//        stringContact.add(new Contact(3, "text3"));
+//
+//        model.addAttribute("stringContact", stringContact);
         return "contactlist";
     }
 
