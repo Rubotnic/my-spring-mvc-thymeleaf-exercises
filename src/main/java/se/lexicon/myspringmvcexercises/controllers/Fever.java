@@ -1,6 +1,7 @@
 package se.lexicon.myspringmvcexercises.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import se.lexicon.myspringmvcexercises.model.FeverStatus;
 import se.lexicon.myspringmvcexercises.repository.FiverRepositpry;
 
-@RequestMapping("/home")
+@Controller
+@RequestMapping("/hom")
 public class Fever {
 
     @Autowired
@@ -29,8 +31,5 @@ public class Fever {
         return "redirect:/home/fever";
 
     }
-
-
-
 
 }

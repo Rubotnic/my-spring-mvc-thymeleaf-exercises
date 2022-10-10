@@ -1,10 +1,10 @@
 package se.lexicon.myspringmvcexercises.controllers;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import se.lexicon.myspringmvcexercises.model.Contact;
 import se.lexicon.myspringmvcexercises.model.Contacts;
 import se.lexicon.myspringmvcexercises.repository.ContactRepository;
 
@@ -17,20 +17,18 @@ import java.util.List;
 @RequestMapping("/home")
 public class Home {
 
+    List<Contact> stringContact = new ArrayList<>();
+
     @Autowired
     ContactRepository contRepo;
-
 
     @GetMapping(path = {"/index"})
     public String index(){
         return "index";
     }
 
-
-// linked to contact.html
    @GetMapping(path = {"/contact"})
     public String contact1(Model model){
-
         Contacts aContacts = new Contacts();
         model.addAttribute("contact1", aContacts);
         return "contact";
@@ -38,25 +36,23 @@ public class Home {
 
     @PostMapping("/save")
    public String createContact(Contacts contacts, Model model) {
-
         contRepo.save(contacts);
-
        return "redirect:/home/contact";
     }
-
 
     @GetMapping(path = {"/contactlist"})
     public String contactList(Model model){
 
-        List<String> listTexts = Arrays.asList("text");
+        stringContact.add(new Contact(1,"text1"));
+        stringContact.add(new Contact(2, "Text2"));
+        stringContact.add(new Contact(3, "text3"));
 
-        model.addAttribute("listText", listTexts);
+        model.addAttribute("stringContact", stringContact);
         return "contactlist";
     }
 
     @GetMapping(path = {"/about"})
     public String about(){
-
         return "about";
 
     }
