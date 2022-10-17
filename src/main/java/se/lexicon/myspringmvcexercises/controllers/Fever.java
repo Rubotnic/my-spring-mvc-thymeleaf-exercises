@@ -3,33 +3,44 @@ package se.lexicon.myspringmvcexercises.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import se.lexicon.myspringmvcexercises.model.FeverStatus;
-import se.lexicon.myspringmvcexercises.repository.FiverRepositpry;
+import org.springframework.web.bind.annotation.*;
+import se.lexicon.myspringmvcexercises.model.FeverReg;
+import se.lexicon.myspringmvcexercises.repository.FeverRepository;
+
+import java.util.Arrays;
+import java.util.List;
+
 
 @Controller
-@RequestMapping("/hom")
+@RequestMapping("/home2")
 public class Fever {
 
     @Autowired
-    FiverRepositpry fiveRepo;
+    FeverRepository feverRepo;
 
-    @GetMapping(path = {"/fever"})
-    public String contact1(Model model){
 
-        FeverStatus aFeverSt = new FeverStatus();
-        model.addAttribute("fever1", aFeverSt);
-        return "fever";
+
+    @GetMapping("/create-fever")
+    public String feverRegistration(Model model){
+
+        FeverReg feverReg = new FeverReg();
+        model.addAttribute("fever1", feverReg);
+//
+        List<String> listControll = Arrays.asList("Normal", "FEVER", "HYPERTHERMIA");
+        model.addAttribute("listControll", listControll);
+
+        List<FeverReg> feverRegs = (List<FeverReg>) feverRepo.findAll();
+        model.addAttribute("feverRegs", feverRegs);
+
+        return "create-fever";
     }
 
     @PostMapping("/save")
-    public String createContact(FeverStatus feverStatus, Model model) {
-        fiveRepo.save(feverStatus);
+    public String createFever(@ModelAttribute("fever1") FeverReg feverReg) {
 
-        return "redirect:/home/fever";
+        feverRepo.save(feverReg);
+        System.out.println(feverReg);
+        return "/result";
 
     }
-
 }

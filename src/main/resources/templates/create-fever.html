@@ -2,12 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <link rel="icon" href="favicons.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Complaible" content="IE=edge">
-  <title>Contact list</title>
-
+  <title>Fever Controller</title>
 
   <!-- Resources -->
   <!-- Fontawesome icon library Resource -->
@@ -19,26 +18,38 @@
   <script defer th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
   <script defer th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 
-  <link href="/css/style.css" rel="stylesheet" type="text/css"></head>
+</head>
 
 <body>
 
 <nav th:insert="fragments/nav.html :: nav_fragment"></nav>
 
 <Header>
-  <h1>Contact list</h1>
+  <h1>Fever controller</h1>
 </Header>
 
 <main>
 
-  <ul class="containerlist" id="conlist1" th:class="conlist1">
-    <li class="list-group-item">Text1</li>
-    <li class="list-group-item">Text2</li>
-    <li class="list-group-item">Text3</li>
-  </ul>
+  <div>
 
+
+    <div>
+      <form action="/home2/save" th:object="${fever1}" method="POST">
+
+        <label> How much body temperature have you?</label>
+        <select th:values="${fever1.bodyTemp}" th:field="*{bodyTemp}">
+          <option th:value="NORMAL"> Normal</option>
+          <option th:value="FEVER"> Fever</option>
+          <option th:value="HYPERTHERMIA"> Hyperthermia</option>
+        </select>
+
+        <input th:field="${fever1.treatment}" type="checkbox" class="custom-control-input" id="customControlInline">
+        <label class="custom-control-label" for="customControlInline">Order treatment</label>
+
+        <button type="submit" class="btn btn-primary my-1">Submit</button>
+      </form>
+    </div>
 
 </main>
-
 </body>
 </html>

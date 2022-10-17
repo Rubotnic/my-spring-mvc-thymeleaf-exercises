@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Complaible" content="IE=edge">
     <title>Text box</title>
 
-
     <!-- Resources -->
     <!-- Fontawesome icon library Resource -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -33,16 +32,12 @@
 <main>
 
 <div class="container" id="form1", th:class="form1">
-
 <form action="/home/save" th:object="${contact1}" method="POST">
 
     <input type="text" placeholder="Enter some text here" th:field="${contact1.text1}"> <br>
     <input type="submit" value="Press here to add text" />
-
 </form>
 </div>
-
-
 
 </main>
 

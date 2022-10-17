@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!--    <meta charset="utf-8">-->
+<!--    <link rel="icon" href="favicons.png">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <meta http-equiv="X-UA-Complaible" content="IE=edge">-->
+<!--    <title>Result</title>-->
+
+<!--    &lt;!&ndash; Resources &ndash;&gt;-->
+<!--    &lt;!&ndash; Fontawesome icon library Resource &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">-->
+
+<!--    &lt;!&ndash; Bootstrap Webjar Resource &ndash;&gt;-->
+<!--    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} " />-->
+<!--    <script defer th:src="@{/webjars/jquery/jquery.min.js}"></script>-->
+<!--    <script defer th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>-->
+<!--    <script defer th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>-->
+
+<!--    <link href="/css/style.css" rel="stylesheet" type="text/css">-->
+</head>
+
+<header>
+    <h1 align="center" >Grattis!</h1>
+</header>
+
+<body th:align="center">
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Din order är gjord och finns i vår databas.</h2>
+            <div class="my-3">
+
+                <span>ID:</span><span th:text="${fever1.feverId}"></span><br/>
+                <span>Body temperature:</span><span th:text="${fever1.bodyTemp}"></span><br/>
+                <span>Treatment:</span><span th:text="${fever1.treatment}"></span><br/>
+
+
+            </div>
+            <a th:href="@{/home2/create-fever}" href="/home2/create-fever">Add new project</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
