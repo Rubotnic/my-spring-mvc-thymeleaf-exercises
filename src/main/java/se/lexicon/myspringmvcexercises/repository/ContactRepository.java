@@ -1,8 +1,9 @@
 package se.lexicon.myspringmvcexercises.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import se.lexicon.myspringmvcexercises.model.Contacts;
 
-public interface ContactRepository extends CrudRepository <Contacts, Integer> {
+public interface ContactRepository extends JpaRepository<Contacts, Integer> {
 
 }
